@@ -1,3 +1,5 @@
+using Cwk.Infraestructure.Data;
+using Microsoft.EntityFrameworkCore;
 
 namespace Cwk.Api
 {
@@ -8,6 +10,10 @@ namespace Cwk.Api
             var builder = WebApplication.CreateBuilder(args);
 
             // Add services to the container.
+
+            //contexto de datos
+            builder.Services.AddDbContext<AppDbContext>(options =>
+            options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
             builder.Services.AddControllers();
             // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
@@ -24,7 +30,6 @@ namespace Cwk.Api
             app.UseHttpsRedirection();
 
             app.UseAuthorization();
-
 
             app.MapControllers();
 
