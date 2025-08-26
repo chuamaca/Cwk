@@ -31,10 +31,12 @@ namespace Cwk.Api
 
             //repositories
             builder.Services.AddScoped<IUserRepository, UserRepository>();
+            builder.Services.AddScoped<IAmenityRepository, AmenityRepository>();
 
             //services
             builder.Services.AddScoped<IAuthService, AuthService>();
             builder.Services.AddScoped<ITokenService, TokenService>();
+            builder.Services.AddScoped<IAmenityService, AmenityService>();
 
             //autenticacion
             var key = builder.Configuration["Jwt:key"];

@@ -22,7 +22,7 @@ namespace Cwk.Web
             builder.Services.AddScoped<AuthService>();
             builder.Services.AddScoped<AuthenticationStateProvider, AuthenticationProviderJWT>(x => x.GetRequiredService<AuthenticationProviderJWT>());
             builder.Services.AddScoped<ILoginService, AuthenticationProviderJWT>(x => x.GetRequiredService<AuthenticationProviderJWT>());
-
+            builder.Services.AddScoped<IRequestService, RequestService>();
             await builder.Build().RunAsync();
         }
     }
