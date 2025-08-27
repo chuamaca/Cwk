@@ -10,6 +10,11 @@ namespace Cwk.Business.Mapping
         public MappingProfile()
         {
             CreateMap<User, UserResponseDto>();
+
+            CreateMap<AddSpaceDto, Space>();
+            CreateMap<EditSpaceDto, Space>();
+            CreateMap<Space, SpaceDetailsDto>();
+
             CreateMap<Amenity, AmenityResponseDto>();
             CreateMap<AddAmenityDto, Amenity>();
             CreateMap<UpdateAmenityDto, Amenity>();

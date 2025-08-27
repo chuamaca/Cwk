@@ -32,11 +32,14 @@ namespace Cwk.Api
             //repositories
             builder.Services.AddScoped<IUserRepository, UserRepository>();
             builder.Services.AddScoped<IAmenityRepository, AmenityRepository>();
+            builder.Services.AddScoped<ISpaceRepository, SpaceRepository>();
 
             //services
             builder.Services.AddScoped<IAuthService, AuthService>();
             builder.Services.AddScoped<ITokenService, TokenService>();
             builder.Services.AddScoped<IAmenityService, AmenityService>();
+            builder.Services.AddScoped<ISpaceService, SpaceService>();
+            builder.Services.AddScoped<IPhotoService, PhotoService>();
 
             //autenticacion
             var key = builder.Configuration["Jwt:key"];
