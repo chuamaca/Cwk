@@ -46,11 +46,14 @@ namespace Cwk.Business.Services
         public async Task UpdateSpaceAsync(EditSpaceDto spaceDto)
         {
             var spaceDb = await _spaceRepository.GetByIdAsync(spaceDto.Id);
-            _mapper.Map<Space>(spaceDb);
-            if (spaceDto.ImageUrl != null)
+
+            if (!string.IsNullOrEmpty(spaceDto.ImageUrl))
             {
-                spaceDb.ImageUrl = await _photoService.UploadImage(spaceDto.ImageUrl);
+                // Si hay una nueva imagen, súbela y actualiza la propiedad
+                spaceDto.ImageUrl = await _photoService.UploadImage(spaceDto.ImageUrl);
             }
+
+            _mapper.Map(spaceDto, spaceDb);
             await _spaceRepository.UpdateAsync(spaceDb, spaceDto.AmenityIds);
         }
     }

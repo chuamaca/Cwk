@@ -2,13 +2,13 @@
 {
     public enum SpaceType
     {
-        storage,
-        office,
-        meetingRoom,
-        coworking,
-        eventSpace,
-        kitchen,
-        reception,
-        individualDesk
+        Bodega,
+        Oficina,
+        SalaDeReuniones,
+        EspacioCompartido,
+        SalonDeEventos,
+        Cocina,
+        Recepcion,
+        EscritorioIndividual
     }
 }

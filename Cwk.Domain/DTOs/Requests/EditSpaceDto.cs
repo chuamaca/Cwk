@@ -11,7 +11,7 @@ namespace Cwk.Domain.DTOs.Requests
         public string Location { get; set; } = string.Empty;
         public decimal PricePerHour { get; set; }
         public string? ImageUrl { get; set; }
-        public bool IsAvailable { get; set; }
+        public bool IsActive { get; set; }
         public SpaceType SpaceType { get; set; }
         public SpaceStatus Status { get; set; }
         public List<int> AmenityIds { get; set; } = [];

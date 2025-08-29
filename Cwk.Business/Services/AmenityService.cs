@@ -4,6 +4,7 @@ using Cwk.Domain.DTOs.Requests;
 using Cwk.Domain.DTOs.Responses;
 using Cwk.Domain.Entities;
 using Cwk.Domain.Interfaces;
+using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -40,6 +41,12 @@ namespace Cwk.Business.Services
         {
             var amenity = _mapper.Map<Amenity>(amenityDto);
             await _amenityRepository.UpdateAsync(amenity);
+        }
+
+        public async Task<List<AmenityResponseDto>> GetAmenitiesBySpaceIdAsync(int spaceId)
+        {
+            var amenities = await _amenityRepository.GetBySpaceIdAsync(spaceId);
+            return _mapper.Map<List<AmenityResponseDto>>(amenities);
         }
     }
 }

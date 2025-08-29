@@ -17,5 +17,7 @@ namespace Cwk.Business.Interfaces
         Task<AmenityResponseDto> CreateAmenityAsync(AddAmenityDto amenityDto);
 
         Task UpdateAmenityAsync(UpdateAmenityDto amenityDto);
+
+        Task<List<AmenityResponseDto>> GetAmenitiesBySpaceIdAsync(int spaceId);
     }
 }

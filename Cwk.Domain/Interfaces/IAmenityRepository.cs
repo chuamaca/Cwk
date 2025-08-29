@@ -16,5 +16,7 @@ namespace Cwk.Domain.Interfaces
         Task<Amenity> AddAsync(Amenity amenity);
 
         Task UpdateAsync(Amenity amenity);
+
+        Task<List<Amenity>> GetBySpaceIdAsync(int spaceId);
     }
 }

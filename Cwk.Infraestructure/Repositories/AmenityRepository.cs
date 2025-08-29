@@ -36,5 +36,13 @@ namespace Cwk.Infraestructure.Repositories
             _context.Amenities.Update(amenity);
             await _context.SaveChangesAsync();
         }
+
+        public async Task<List<Amenity>> GetBySpaceIdAsync(int spaceId)
+        {
+            return await _context.SpaceAmenities
+                .Where(sa => sa.SpaceId == spaceId)
+                .Select(sa => sa.Amenity)
+                .ToListAsync();
+        }
     }
 }
