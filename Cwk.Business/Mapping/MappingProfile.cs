@@ -18,6 +18,10 @@ namespace Cwk.Business.Mapping
             CreateMap<Amenity, AmenityResponseDto>();
             CreateMap<AddAmenityDto, Amenity>();
             CreateMap<UpdateAmenityDto, Amenity>();
+
+            CreateMap<Reservation, ReservationDetailsDto>();
+            CreateMap<CreateReservationRequestDto, Reservation>();
+            CreateMap<UpdateReservationRequestDto, Reservation>();
         }
     }
 }

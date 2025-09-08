@@ -53,6 +53,15 @@ namespace Cwk.Web.Services
             return response;
         }
 
+        public async Task<TResponse> PostAndReadAsync<TResponse, TRequest>(string url, TRequest model)
+        {
+            await AddAuthorizationHeaderAsync();
+            var response = await PostAsync(url, model);
+            response.EnsureSuccessStatusCode();
+            var responseContent = await response.Content.ReadAsStringAsync();
+            return JsonSerializer.Deserialize<TResponse>(responseContent, JsonDefaultOptions)!;
+        }
+
         public async Task<object> DeleteAsync(string url)
         {
             await AddAuthorizationHeaderAsync();
@@ -66,6 +75,13 @@ namespace Cwk.Web.Services
             await AddAuthorizationHeaderAsync();
             var content = new StringContent(JsonSerializer.Serialize(model), Encoding.UTF8, "application/json");
             var response = await _httpClient.PutAsync(url, content);
+            return response;
+        }
+
+        public async Task<HttpResponseMessage> PutAsync(string url)
+        {
+            await AddAuthorizationHeaderAsync();
+            var response = await _httpClient.PutAsync(url, null);
             return response;
         }
     }

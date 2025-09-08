@@ -19,6 +19,7 @@ namespace Cwk.Application.Services
             claims.AddClaim(new Claim(ClaimTypes.Name, user.Email));
             claims.AddClaim(new Claim(ClaimTypes.Role, user.Role.ToString()));
             claims.AddClaim(new Claim("Nombre", user.Name));
+            claims.AddClaim(new Claim("UserId", user.Id.ToString()));
 
             var tokenDescriptor = new SecurityTokenDescriptor
             {

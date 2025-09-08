@@ -33,6 +33,7 @@ namespace Cwk.Api
             builder.Services.AddScoped<IUserRepository, UserRepository>();
             builder.Services.AddScoped<IAmenityRepository, AmenityRepository>();
             builder.Services.AddScoped<ISpaceRepository, SpaceRepository>();
+            builder.Services.AddScoped<IReservationRepository, ReservationRepository>();
 
             //services
             builder.Services.AddScoped<IAuthService, AuthService>();
@@ -40,6 +41,7 @@ namespace Cwk.Api
             builder.Services.AddScoped<IAmenityService, AmenityService>();
             builder.Services.AddScoped<ISpaceService, SpaceService>();
             builder.Services.AddScoped<IPhotoService, PhotoService>();
+            builder.Services.AddScoped<IReservationService, ReservationService>();
 
             //autenticacion
             var key = builder.Configuration["Jwt:key"];
