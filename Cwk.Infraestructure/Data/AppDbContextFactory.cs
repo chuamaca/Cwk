@@ -8,7 +8,7 @@ namespace Cwk.Infraestructure.Data
         public AppDbContext CreateDbContext(string[] args)
         {
             var optionBuilder = new DbContextOptionsBuilder<AppDbContext>();
-            optionBuilder.UseSqlServer("Server=(localdb)\\mssqllocaldb;Database=CWKDB2;Trusted_Connection=true;MultipleActiveResultSets=true");
+            optionBuilder.UseSqlServer("Server=DCODEV;Database=CWKDB2;Trusted_Connection=true;MultipleActiveResultSets=true; TrustServerCertificate=True");
             return new AppDbContext(optionBuilder.Options);
         }
     }
